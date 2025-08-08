@@ -1,93 +1,165 @@
-# Discovery – Sistema de Gestão para Loja de Roupas
+# 📄 Escopo do Sistema – Loja Física de Roupas no Centro Fashion
 
-## 🧩 Visão Geral do Projeto
+## 1. 🧭 Resumo Executivo
 
-Este projeto tem como objetivo criar um sistema de gestão para uma loja de roupas localizada no **Centro Fashion**, atendendo às necessidades do cliente em relação ao controle de estoque, vendas e fluxo de caixa.
-
----
-
-## 👤 Cliente
-
-- **Segmento:** Loja de Roupas Física
-- **Localização:** Centro Fashion
-- **Usuários do sistema:**
-  - 2 Vendedores
-  - 1 Dono (Administrador)
+Este projeto tem como objetivo o desenvolvimento de um **sistema web simples e funcional** para uma **loja de roupas localizada no Centro Fashion**, voltado para o gerenciamento de **estoque**, **vendas** e **fluxo de caixa**, com perfis diferenciados de acesso (vendedor e dono).
 
 ---
 
-## 🎯 Objetivo do Sistema
+## 2. 👤 Público-Alvo e Perfis de Usuário
 
-Desenvolver um sistema simples, funcional e rápido para auxiliar a loja nas seguintes operações:
-
-- **Controle de estoque:** cadastro e atualização da quantidade de produtos.
-- **Gestão de vendas:** registro de vendas realizadas em dinheiro ou via PIX.
-- **Fluxo de caixa:** acompanhamento da entrada de valores no caixa.
-- **Perfis de acesso:** separação de permissões entre vendedores e dono.
-
----
-
-## 🛠️ Funcionalidades Principais
-
-### Produtos
-- Cadastro de produtos (nome, tamanho, cor, preço, categoria)
-- Atualização de estoque
-- Consulta de produtos disponíveis
-
-### Vendas
-- Registro de vendas (produto, quantidade, valor, forma de pagamento, vendedor)
-- Suporte para pagamentos em **dinheiro** e **PIX**
-- Consulta de vendas por período e vendedor
-
-### Caixa
-- Registro da abertura e fechamento do caixa
-- Histórico de movimentações financeiras
-- Resumo diário de entradas
-
-### Usuários
-- Login de vendedor e dono
-- Permissões por perfil:
-  - **Vendedor:** registrar vendas e consultar produtos
-  - **Dono:** acesso completo, incluindo relatórios e controle de caixa
+- **Usuários:**
+  - **Vendedor:** realiza vendas, consulta produtos.
+  - **Dono (Administrador):** possui acesso completo ao sistema (produtos, vendas, caixa e relatórios).
+  
+- **Necessidade:**
+  - Eliminar controles manuais
+  - Garantir agilidade no atendimento
+  - Ter visibilidade clara do fluxo de caixa e desempenho de vendas
 
 ---
 
-## ⚙️ Requisitos Técnicos
+## 3. 🎯 Objetivos do Sistema
 
-### Requisitos Funcionais
-- RF01 – O sistema deve permitir o cadastro de produtos com nome, preço, categoria, tamanho e cor.
-- RF02 – O sistema deve permitir registrar uma venda com forma de pagamento (dinheiro/PIX).
-- RF03 – O sistema deve atualizar automaticamente o estoque após uma venda.
-- RF04 – O sistema deve permitir visualizar o fluxo de caixa diário.
-- RF05 – O sistema deve ter login e senha com controle de permissões.
-
-### Requisitos Não-Funcionais
-- RNF01 – O sistema deve ser acessível via navegador (aplicação web).
-- RNF02 – A API deve ser RESTful e desenvolvida com Node.js.
-- RNF03 – O banco de dados deve ser relacional (PostgreSQL ou MySQL).
-- RNF04 – O sistema deve ter boa usabilidade para ser utilizado em um ambiente de loja.
+- Facilitar o **cadastro e gerenciamento de produtos**
+- Agilizar o **registro de vendas**
+- Controlar o **fluxo financeiro diário**
+- Separar **permissões por tipo de usuário**
+- Disponibilizar **relatórios simples e diretos** para o dono da loja
 
 ---
 
-## 📅 Requisitos Futuros (Desejáveis)
-- Relatório de produtos mais vendidos
-- Histórico de movimentações por vendedor
-- Emissão de comprovante de venda (PDF)
-- Controle de entrada de novos produtos (compra de fornecedores)
+## 4. 🛠️ Funcionalidades por Módulo
+
+### 4.1. Produtos
+- [x] Cadastro de produtos com:
+  - Nome
+  - Tamanho
+  - Cor
+  - Categoria
+  - Preço
+- [x] Atualização de estoque
+- [x] Consulta/listagem de produtos
+
+### 4.2. Vendas
+- [x] Registro de vendas com:
+  - Itens vendidos (produto e quantidade)
+  - Vendedor responsável
+  - Forma de pagamento: dinheiro ou PIX
+- [x] Consulta de vendas por período
+- [x] Consulta de vendas por vendedor
+
+### 4.3. Caixa
+- [x] Registro de abertura e fechamento de caixa
+- [x] Registro das entradas por vendas
+- [x] Resumo financeiro diário
+
+### 4.4. Usuários
+- [x] Login com controle de acesso
+- [x] Perfil de **vendedor** com permissões limitadas
+- [x] Perfil de **dono** com acesso completo
 
 ---
 
-## 🧪 Critérios de Aceite
+## 5. ⚙️ Requisitos Técnicos
 
-- O vendedor consegue registrar uma venda de forma rápida.
-- O dono consegue acompanhar o total vendido no dia.
-- O estoque é atualizado automaticamente após uma venda.
-- A listagem de produtos disponíveis está sempre atualizada.
-- O acesso ao sistema é protegido por login com senha.
+### 5.1. Requisitos Funcionais (RF)
+| Código | Descrição |
+|--------|-----------|
+| RF01 | Permitir o cadastro de produtos com seus atributos |
+| RF02 | Registrar vendas com escolha de forma de pagamento |
+| RF03 | Atualizar estoque automaticamente após venda |
+| RF04 | Visualizar o fluxo de caixa diário |
+| RF05 | Autenticar usuários com login e senha |
+| RF06 | Permitir filtro de vendas por data e vendedor |
+
+### 5.2. Requisitos Não Funcionais (RNF)
+| Código | Descrição |
+|--------|-----------|
+| RNF01 | O sistema deve funcionar via navegador (aplicação web responsiva) |
+| RNF02 | A API deve ser RESTful em Node.js |
+| RNF03 | Banco de dados relacional (PostgreSQL ou MySQL) |
+| RNF04 | Interface amigável para uso rápido em loja |
 
 ---
 
-## 📌 Considerações Finais
+## 6. 📚 Casos de Uso (Use Cases)
 
-O sistema será desenvolvido com foco na praticidade e agilidade para uso diário em loja física, respeitando a estrutura de um MVP funcional e evolutivo.
+### 🎫 UC01 – Cadastro de Produto
+- **Ator:** Dono
+- **Descrição:** O dono acessa o sistema com seu login e cadastra o produtos informando nome, preço, tamanho, cor e categoria.
+- **Pré-condição:** Usuário logado com perfil de dono.
+- **Pós-condição:** Produto salvo no banco de dados.
 
+### 💰 UC02 – Registro de Venda
+- **Ator:** Vendedor
+- **Descrição:** O vendedor seleciona os produtos vendidos, define a quantidade, escolhe a forma de pagamento (dinheiro ou PIX) e confirma a venda.
+- **Pré-condição:** Usuário logado com perfil de vendedor.
+- **Pós-condição:** Venda registrada e estoque atualizado.
+
+### 📦 UC03 – Consulta de Estoque
+- **Ator:** Vendedor / Dono
+- **Descrição:** O usuário visualiza a listagem dos produtos disponíveis no estoque com seus respectivos saldos.
+- **Pré-condição:** Usuário logado.
+- **Pós-condição:** Dados exibidos na interface.
+
+### 💼 UC04 – Abertura e Fechamento de Caixa
+- **Ator:** Dono
+- **Descrição:** O dono inicia o caixa com valor inicial e encerra no final do dia, visualizando entradas acumuladas por vendas.
+- **Pré-condição:** Usuário logado com perfil de dono.
+- **Pós-condição:** Registro das movimentações no histórico de caixa.
+
+### 📊 UC05 – Geração de Relatórios
+- **Ator:** Dono
+- **Descrição:** O dono acessa os relatórios para ver vendas por período e desempenho por vendedor.
+- **Pré-condição:** Usuário logado com perfil de dono.
+- **Pós-condição:** Relatórios apresentados com filtros aplicados.
+
+### 🔐 UC06 – Autenticação de Usuário
+- **Ator:** Vendedor / Dono
+- **Descrição:** O usuário informa seu login e senha para acessar o sistema.
+- **Pré-condição:** Sistema disponível.
+- **Pós-condição:** Acesso liberado conforme o perfil.
+
+---
+
+## 7. 🔮 Funcionalidades Futuras Desejadas
+
+- Relatórios de produtos mais vendidos
+- Emissão de comprovante de venda em PDF
+- Histórico de ações por vendedor
+- Dashboard com gráficos de desempenho
+
+---
+
+## 8. ✅ Critérios de Aceite
+
+- Vendedor consegue registrar uma venda sem travas
+- Dono vê o total vendido no dia com facilidade
+- Estoque é atualizado automaticamente
+- Sistema acessível por login com senha
+- Listagem de produtos sempre atualizada
+
+---
+
+## 9. 📅 Prazos e Entregas
+
+- MVP funcional com:
+  - Cadastro de produtos
+  - Registro de vendas
+  - Login e permissões
+  - Controle de caixa básico
+
+- Funcionalidades futuras serão avaliadas após testes do MVP
+
+---
+
+## 10. 📁 Tecnologias e Ferramentas
+
+- Backend: **Node.js + Express**
+- Banco de Dados: **PostgreSQL** ou **MySQL**
+- API: RESTful
+- Frontend: (opcional neste escopo)
+- Testes: Jest + Supertest (API)
+- Documentação: Markdown + Swagger
+- Versionamento: Git + GitHub (repositório público)
