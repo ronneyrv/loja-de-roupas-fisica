@@ -1,6 +1,6 @@
 ﻿# loja-de-roupas-física
 
-# 📦 Sistema de Vendas
+# Sistema de Vendas
 
 Este projeto representa o **modelo conceitual de um sistema de vendas** com 4 entidades principais:  
 - **Venda**  
@@ -10,16 +10,25 @@ Este projeto representa o **modelo conceitual de um sistema de vendas** com 4 en
 
 ---
 
-## 📊 Diagrama de Classes
+## Diagrama de Classes
 
 ```mermaid
 classDiagram
-    class Venda {
+    class vendas {
         int id_venda
+        int id_usuario
         datetime data_venda
-        int quantidade
         float valor_total
-        string forma_pagamento
+        string forma_pg
+    }
+
+    class item_Venda {
+        int id_item_venda
+        int id_venda
+        int id_produto
+        int quantidade
+        float preco_unitario
+        decimal valor_total_produto
     }
 
     class Usuario {
@@ -49,6 +58,9 @@ classDiagram
     }
 
     %% Relacionamentos
-    Usuario --> Venda : realiza
-    Produto --> Venda : vendido_em
+    Usuario --> vendas : realiza
+    vendas --> item_Venda : contem
+    Produto --> item_Venda : vendido_em
     Categoria --> Produto : classifica
+
+
