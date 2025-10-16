@@ -1,0 +1,26 @@
+{
+  "name": "loja-de-roupas-fisica",
+  "version": "1.0.0",
+  "description": "Este projeto representa o **modelo conceitual de um sistema de vendas** com 4 entidades principais:  \r - **Venda**  \r - **Usuário**  \r - **Produto**  \r - **Categoria**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronneyrv/loja-de-roupas-fisica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronneyrv/loja-de-roupas-fisica/issues"
+  },
+  "homepage": "https://github.com/ronneyrv/loja-de-roupas-fisica#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
