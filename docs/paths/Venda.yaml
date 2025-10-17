@@ -1,0 +1,68 @@
+paths:
+  /vendas:
+    get:
+      summary: Lista todas as vendas
+      tags: [Venda]
+      responses:
+        "200":
+          description: Lista de vendas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../components/schemas/Venda.yaml#/Venda"
+
+    post:
+      summary: Registra uma nova venda
+      tags: [Venda]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/Venda.yaml#/Venda"
+      responses:
+        "201":
+          description: Venda registrada com sucesso
+
+  /vendas/periodo:
+    get:
+      summary: Consulta vendas por período
+      tags: [Venda]
+      parameters:
+        - name: data_inicio
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: data_fim
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        "200":
+          description: Vendas no período especificado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../components/schemas/Venda.yaml#/Venda"
+
+  /vendas/vendedor/{nome}:
+    get:
+      summary: Consulta vendas por vendedor
+      tags: [Venda]
+      parameters:
+        - name: nome
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Vendas do vendedor

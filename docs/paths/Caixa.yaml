@@ -1,0 +1,41 @@
+paths:
+  /caixa:
+    get:
+      summary: Consulta o caixa atual
+      tags: [Caixa]
+      responses:
+        "200":
+          description: Dados do caixa atual
+          content:
+            application/json:
+              schema:
+                $ref: "../components/schemas/Caixa.yaml#/Caixa"
+
+    post:
+      summary: Abre um novo caixa
+      tags: [Caixa]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/Caixa.yaml#/Caixa"
+      responses:
+        "201":
+          description: Caixa aberto
+
+  /caixa/fechar:
+    post:
+      summary: Fecha o caixa atual
+      tags: [Caixa]
+      responses:
+        "200":
+          description: Caixa fechado com sucesso
+
+  /caixa/resumo:
+    get:
+      summary: Retorna o resumo financeiro diário
+      tags: [Caixa]
+      responses:
+        "200":
+          description: Resumo diário retornado com sucesso

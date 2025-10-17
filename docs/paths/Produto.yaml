@@ -1,0 +1,79 @@
+paths:
+  /produtos:
+    get:
+      summary: Lista todos os produtos
+      tags: [Produto]
+      responses:
+        "200":
+          description: Lista de produtos retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../components/schemas/Produto.yaml#/Produto"
+
+    post:
+      summary: Cadastra um novo produto
+      tags: [Produto]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/Produto.yaml#/Produto"
+      responses:
+        "201":
+          description: Produto criado com sucesso
+
+  /produtos/{id_produto}:
+    get:
+      summary: Busca produto por ID
+      tags: [Produto]
+      parameters:
+        - name: id_produto
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Produto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "../components/schemas/Produto.yaml#/Produto"
+        "404":
+          description: Produto não encontrado
+
+    put:
+      summary: Atualiza produto
+      tags: [Produto]
+      parameters:
+        - name: id_produto
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/Produto.yaml#/Produto"
+      responses:
+        "200":
+          description: Produto atualizado
+
+    delete:
+      summary: Remove produto
+      tags: [Produto]
+      parameters:
+        - name: id_produto
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Produto removido com sucesso

@@ -1,0 +1,24 @@
+Caixa:
+  type: object
+  properties:
+    id_caixa:
+      type: integer
+      example: 1
+    data_abertura:
+      type: string
+      format: date-time
+      example: "2025-10-16T08:00:00"
+    data_fechamento:
+      type: string
+      format: date-time
+      example: "2025-10-16T18:00:00"
+    total_vendas:
+      type: number
+      example: 1598.70
+    status:
+      type: string
+      enum: [aberto, fechado]
+      example: aberto
+  required:
+    - data_abertura
+    - status

@@ -1,51 +1,28 @@
-const database = require('./../connection/database');
+const database = require('../connection/database');
 
-// Inserir nova venda
 async function insert(venda) {
-    const { id_usuario, data_venda, valor_total, forma_pg } = venda;
-
-    const sql = `
-        INSERT INTO tb_vendas (id_usuario, data_venda, valor_total, forma_pg)
-        VALUES (${id_usuario}, '${data_venda}', ${valor_total}, '${forma_pg}')
-    `;
-    await database.execute(sql);
+  const { vendedor_id, forma_pagamento, total } = venda;
+  const sql = `
+    INSERT INTO tb_vendas (vendedor_id, forma_pagamento, total)
+    VALUES (?, ?, ?)
+  `;
+  const [result] = await database.execute(sql, [vendedor_id, forma_pagamento, total]);
+  return result.insertId;
 }
 
-// Buscar todas as vendas
 async function all() {
-    const dados = await database.execute(`
-        SELECT v.*, u.nome AS usuario
-        FROM tb_vendas v
-        LEFT JOIN tb_usuarios u ON v.id_usuario = u.id_usuario
-    `);
-    return dados;
+  const [rows] = await database.execute(`
+    SELECT v.*, u.nome AS vendedor
+    FROM tb_vendas v
+    JOIN tb_usuarios u ON v.vendedor_id = u.id_usuario
+    ORDER BY v.data_venda DESC
+  `);
+  return rows;
 }
 
-// Buscar venda por ID
 async function find(id) {
-    const dados = await database.execute(`SELECT * FROM tb_vendas WHERE id_venda=${id}`);
-    return dados[0];
+  const [rows] = await database.execute('SELECT * FROM tb_vendas WHERE id_venda = ?', [id]);
+  return rows[0];
 }
 
-// Remover venda
-async function remove(id) {
-    await database.execute(`DELETE FROM tb_vendas WHERE id_venda=${id}`);
-}
-
-// Atualizar venda
-async function update(id, campos) {
-    const updates = Object.entries(campos)
-        .map(([chave, valor]) => `${chave}='${valor}'`)
-        .join(', ');
-
-    const sql = `UPDATE tb_vendas SET ${updates} WHERE id_venda=${id}`;
-    await database.execute(sql);
-}
-
-module.exports = {
-    all,
-    find,
-    insert,
-    remove,
-    update
-};
+module.exports = { insert, all, find };

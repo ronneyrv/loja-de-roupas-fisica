@@ -1,0 +1,35 @@
+Venda:
+  type: object
+  properties:
+    id_venda:
+      type: integer
+      example: 1
+    data_venda:
+      type: string
+      format: date-time
+      example: "2025-10-16T15:00:00"
+    vendedor:
+      type: string
+      example: Maria Souza
+    forma_pagamento:
+      type: string
+      enum: [dinheiro, pix]
+      example: pix
+    itens:
+      type: array
+      items:
+        type: object
+        properties:
+          produto:
+            type: string
+            example: Camisa Polo
+          quantidade:
+            type: integer
+            example: 2
+          preco_unitario:
+            type: number
+            example: 79.9
+  required:
+    - vendedor
+    - forma_pagamento
+    - itens

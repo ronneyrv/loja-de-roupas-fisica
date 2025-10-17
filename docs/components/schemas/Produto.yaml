@@ -1,0 +1,31 @@
+Produto:
+  type: object
+  properties:
+    id_produto:
+      type: integer
+      example: 1
+    nome:
+      type: string
+      example: Camisa Polo
+    tamanho:
+      type: string
+      example: M
+    cor:
+      type: string
+      example: Azul
+    categoria:
+      type: string
+      example: Masculino
+    preco:
+      type: number
+      format: float
+      example: 79.90
+    estoque:
+      type: integer
+      example: 25
+  required:
+    - nome
+    - tamanho
+    - cor
+    - categoria
+    - preco

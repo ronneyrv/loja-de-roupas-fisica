@@ -1,0 +1,9 @@
+paths:
+  /produtos:
+    $ref: "./Produto.yaml#/paths/~1produtos"
+  /vendas:
+    $ref: "./Venda.yaml#/paths/~1vendas"
+  /caixa:
+    $ref: "./Caixa.yaml#/paths/~1caixa"
+  /usuarios:
+    $ref: "./Usuario.yaml#/paths/~1usuarios"

@@ -1,0 +1,28 @@
+Usuario:
+  type: object
+  properties:
+    id_usuario:
+      type: integer
+      example: 1
+    nome:
+      type: string
+      example: João da Silva
+    cargo:
+      type: string
+      enum: [vendedor, dono]
+      example: vendedor
+    cpf:
+      type: string
+      example: "123.456.789-00"
+    email:
+      type: string
+      example: joao@email.com
+    telefone:
+      type: string
+      example: "(92) 99999-9999"
+    senha:
+      type: string
+      example: "123456"
+    ativo:
+      type: boolean
+      example: true

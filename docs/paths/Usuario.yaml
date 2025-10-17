@@ -1,0 +1,69 @@
+paths:
+  /usuarios:
+    get:
+      summary: Lista todos os usuários
+      tags: [Usuário]
+      responses:
+        "200":
+          description: Lista de usuários
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../components/schemas/Usuario.yaml#/Usuario"
+
+    post:
+      summary: Cadastra um novo usuário
+      tags: [Usuário]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../components/schemas/Usuario.yaml#/Usuario"
+      responses:
+        "201":
+          description: Usuário criado
+
+  /usuarios/login:
+    post:
+      summary: Realiza login do usuário
+      tags: [Usuário]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                senha:
+                  type: string
+              required: [email, senha]
+      responses:
+        "200":
+          description: Login bem-sucedido
+        "401":
+          description: Credenciais inválidas
+
+  /usuarios/{id_usuario}:
+    get:
+      summary: Busca usuário por ID
+      tags: [Usuário]
+      parameters:
+        - name: id_usuario
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Usuário encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "../components/schemas/Usuario.yaml#/Usuario"
+        "404":
+          description: Usuário não encontrado
