@@ -1,4 +1,6 @@
-﻿# loja-de-roupas-física
+﻿# API loja-de-roupas-física
+
+Trabalho final da turma FS44 - Digital College
 
 # 📦 Sistema de Vendas
 
