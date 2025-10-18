@@ -56,6 +56,12 @@ CREATE TABLE tb_itens_venda (
     FOREIGN KEY (produto_id) REFERENCES tb_produtos(id_produto) ON DELETE CASCADE
 );
 
+CREATE TABLE tb_categorias (
+  id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE tb_caixa (
     id_caixa INT AUTO_INCREMENT PRIMARY KEY,
     data_abertura DATETIME DEFAULT CURRENT_TIMESTAMP,
