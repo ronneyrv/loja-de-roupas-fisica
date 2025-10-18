@@ -1,44 +1,112 @@
-const database = require('../connection/database');
-const app = require('express').Router();
+const express = require('express');
+const router = express.Router();
+const controller = require('../controller/categorias');
 
-// GET - Buscar todas as categorias
-app.get('/api/categorias', async (req, res) => {
-    try {
-        const dados = await database.execute(`SELECT * FROM tb_categorias`);
-        res.status(200).send(dados);
-    } catch (err) {
-        res.status(500).send({ erro: 'Erro ao buscar categorias.' });
-    }
-});
+/**
+ * @swagger
+ * tags:
+ *   name: Categorias
+ *   description: Operações relacionadas às categorias
+ */
 
-// GET - Buscar categoria por ID
-app.get('/api/categorias/:id', async (req, res) => {
-    const id = req.params.id;
-    const dados = await database.execute(`SELECT * FROM tb_categorias WHERE id_categoria=${id}`);
-    if (dados.length === 0) return res.status(404).send({ mensagem: 'Categoria não encontrada.' });
-    res.send(dados[0]);
-});
+/**
+ * @swagger
+ * /categorias:
+ *   get:
+ *     summary: Lista todas as categorias
+ *     tags: [Categorias]
+ *     responses:
+ *       200:
+ *         description: Lista de categorias
+ */
+router.get('/', controller.listar);
 
-// POST - Criar nova categoria
-app.post('/api/categorias', async (req, res) => {
-    const { nome } = req.body;
-    await database.execute(`INSERT INTO tb_categorias (nome) VALUES ('${nome}')`);
-    res.status(201).send({ mensagem: 'Categoria criada com sucesso.' });
-});
+/**
+ * @swagger
+ * /categorias/{id}:
+ *   get:
+ *     summary: Busca uma categoria por ID
+ *     tags: [Categorias]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID da categoria
+ *     responses:
+ *       200:
+ *         description: Categoria encontrada
+ *       404:
+ *         description: Categoria não encontrada
+ */
+router.get('/:id', controller.buscar);
 
-// PATCH - Atualizar categoria
-app.patch('/api/categorias/:id', async (req, res) => {
-    const id = req.params.id;
-    const { nome } = req.body;
-    await database.execute(`UPDATE tb_categorias SET nome='${nome}' WHERE id_categoria=${id}`);
-    res.send({ mensagem: 'Categoria atualizada.' });
-});
+/**
+ * @swagger
+ * /categorias:
+ *   post:
+ *     summary: Cria uma nova categoria
+ *     tags: [Categorias]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [nome]
+ *             properties:
+ *               nome:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Categoria criada com sucesso
+ */
+router.post('/', controller.criar);
 
-// DELETE - Excluir categoria
-app.delete('/api/categorias/:id', async (req, res) => {
-    const id = req.params.id;
-    await database.execute(`DELETE FROM tb_categorias WHERE id_categoria=${id}`);
-    res.status(204).send();
-});
+/**
+ * @swagger
+ * /categorias/{id}:
+ *   put:
+ *     summary: Atualiza uma categoria existente
+ *     tags: [Categorias]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nome:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Categoria atualizada
+ */
+router.put('/:id', controller.atualizar);
 
-module.exports = app;
+/**
+ * @swagger
+ * /categorias/{id}:
+ *   delete:
+ *     summary: Remove uma categoria
+ *     tags: [Categorias]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       204:
+ *         description: Categoria removida
+ */
+router.delete('/:id', controller.remover);
+
+module.exports = router;

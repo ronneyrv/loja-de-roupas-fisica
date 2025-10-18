@@ -3,7 +3,7 @@ info:
   title: API - Loja de Roupas Física
   version: "1.0.0"
   description: >
-    API responsável pelo gerenciamento de produtos, vendas, caixa e usuários da loja física.
+    API responsável pelo gerenciamento de produtos, categorias, vendas, caixa e usuários da loja física.
 
 servers:
   - url: http://localhost:3000
@@ -16,6 +16,8 @@ components:
   schemas:
     Produto:
       $ref: "./components/schemas/Produto.yaml#/Produto"
+    Categoria:
+      $ref: "./components/schemas/Categoria.yaml#/Categoria"
     Venda:
       $ref: "./components/schemas/Venda.yaml#/Venda"
     Caixa:

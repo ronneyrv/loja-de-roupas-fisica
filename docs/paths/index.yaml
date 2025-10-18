@@ -7,3 +7,5 @@ paths:
     $ref: "./Caixa.yaml#/paths/~1caixa"
   /usuarios:
     $ref: "./Usuario.yaml#/paths/~1usuarios"
+  /categorias:
+    $ref: "./Categoria.yaml#/paths/~1categorias"

@@ -1,0 +1,15 @@
+Categoria:
+  type: object
+  properties:
+    id_categoria:
+      type: integer
+      example: 1
+    nome:
+      type: string
+      example: Camisas
+    criado_em:
+      type: string
+      format: date-time
+      example: 2025-10-17T15:30:00Z
+  required:
+    - nome

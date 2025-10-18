@@ -13,11 +13,13 @@ const usuarioRouter = require("./src/router/usuarios");
 const produtoRouter = require("./src/router/produtos");
 const vendaRouter = require("./src/router/vendas");
 const itensVendaRouter = require("./src/router/itens_venda");
+const categoriasRouter = require("./src/router/categorias");
 
 app.use("/api/usuarios", usuarioRouter);
 app.use("/api/produtos", produtoRouter);
 app.use("/api/vendas", vendaRouter);
 app.use("/api/itens_venda", itensVendaRouter);
+app.use('/api/categorias', categoriasRouter);
 
 // CONFIGURAÇÃO DO SWAGGER
 const swaggerOptions = {
