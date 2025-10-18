@@ -119,4 +119,30 @@ router.put('/:id', controller.atualizar);
  */
 router.delete('/:id', controller.remover);
 
+/**
+ * @swagger
+ * /usuarios/login:
+ *   post:
+ *     summary: Autentica um usuário (login)
+ *     tags: [Usuários]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, senha]
+ *             properties:
+ *               email:
+ *                 type: string
+ *               senha:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Login realizado com sucesso
+ *       401:
+ *         description: Credenciais inválidas
+ */
+router.post('/login', controller.login);
+
 module.exports = router;
