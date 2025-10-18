@@ -31,9 +31,17 @@ classDiagram
     class Venda {
         int id_venda
         datetime data_venda
-        int quantidade
-        float valor_total
+        float valor_total (Calculado)
         string forma_pagamento
+    }
+
+    class ItemVenda {
+        int id_item
+        int quantidade
+        float preco_unitario
+        float subtotal (Calculado)
+        int venda_id (FK)
+        int produto_id (FK)
     }
 
     class Usuario {
@@ -54,7 +62,7 @@ classDiagram
         string tamanho
         string cor
         float preco
-        int quantidade
+        int quantidade (Estoque)
     }
 
     class Categoria {
@@ -64,5 +72,6 @@ classDiagram
 
     %% Relacionamentos
     Usuario --> Venda : realiza
-    Produto --> Venda : vendido_em
+    Venda "1" -- "N" ItemVenda : contem
+    Produto "1" -- "N" ItemVenda : vendido_em
     Categoria --> Produto : classifica
