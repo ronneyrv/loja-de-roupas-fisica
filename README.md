@@ -1,16 +1,28 @@
-﻿# API loja-de-roupas-física
+﻿# 🧾 API - Loja de Roupas Física
 
-Trabalho final da turma FS44 - Digital College
-
-# 📦 Sistema de Vendas
-
-Este projeto representa o **modelo conceitual de um sistema de vendas** com 4 entidades principais:  
-- **Venda**  
-- **Usuário**  
-- **Produto**  
-- **Categoria**  
+Trabalho final da turma **FS44 - Digital College**
 
 ---
+
+## 📦 Sistema de Vendas
+
+Este projeto representa o **modelo conceitual de um sistema de vendas**, contendo **4 entidades principais**:
+
+- 👕 **Produto**  
+- 🧍 **Usuário**  
+- 💰 **Venda**  
+- 🏷️ **Categoria**
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- Node.js
+- Express
+- MySQL
+- OpenAPI / Swagger
+- JavaScript (ES6+)
+- Mermaid (para diagramas)
 
 ## 📊 Diagrama de Classes
 
