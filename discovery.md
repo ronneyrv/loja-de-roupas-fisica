@@ -2,7 +2,7 @@
 
 ## 1. 🧭 Resumo Executivo
 
-Este projeto tem como objetivo o desenvolvimento de um **sistema web simples e funcional** para uma **loja de roupas localizada no Centro Fashion**, voltado para o gerenciamento de **estoque**, **vendas** e **fluxo de caixa**, com perfis diferenciados de acesso (vendedor e dono).
+Este projeto tem como objetivo o desenvolvimento de um **sistema simples e funcional** para uma **loja de roupas localizada no Centro Fashion**, voltado para o gerenciamento de **estoque**, **vendas** e **fluxo de caixa**, com perfis diferenciados de acesso (vendedor e dono).
 
 ---
 
@@ -149,6 +149,8 @@ Este projeto tem como objetivo o desenvolvimento de um **sistema web simples e f
   - Registro de vendas
   - Login e permissões
   - Controle de caixa básico
+  
+  30/10/2025
 
 - Funcionalidades futuras serão avaliadas após testes do MVP
 
@@ -157,9 +159,8 @@ Este projeto tem como objetivo o desenvolvimento de um **sistema web simples e f
 ## 10. 📁 Tecnologias e Ferramentas
 
 - Backend: **Node.js + Express**
-- Banco de Dados: **PostgreSQL** ou **MySQL**
+- Banco de Dados: **MySQL**
 - API: RESTful
-- Frontend: (opcional neste escopo)
 - Testes: Jest + Supertest (API)
 - Documentação: Markdown + Swagger
 - Versionamento: Git + GitHub (repositório público)
