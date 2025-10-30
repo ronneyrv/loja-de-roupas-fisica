@@ -18,7 +18,7 @@ CREATE TABLE tb_usuarios (
     telefone VARCHAR(20),
     senha VARCHAR(255) NOT NULL,
     ativo BOOLEAN DEFAULT TRUE,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE tb_produtos (
@@ -29,13 +29,13 @@ CREATE TABLE tb_produtos (
     categoria VARCHAR(100) NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
     estoque INT DEFAULT 0,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE tb_vendas (
     id_venda INT AUTO_INCREMENT PRIMARY KEY,
     data_venda DATETIME DEFAULT CURRENT_TIMESTAMP,
-    vendedor_id INT NOT NULL,
+    vendedor_id INT,
     forma_pagamento ENUM('dinheiro', 'pix') NOT NULL,
     total DECIMAL(10,2) DEFAULT 0,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -56,7 +56,6 @@ CREATE TABLE tb_itens_venda (
 CREATE TABLE tb_categorias (
   id_categoria INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE tb_caixa (
